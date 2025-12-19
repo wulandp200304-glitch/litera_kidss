@@ -1,0 +1,930 @@
+:root {
+    --pink: #FB7185;
+    --kuning: #FDE68A;
+    --mint: #A7F3D0; /* WARNA BARU */
+}
+
+/* RESET */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* BODY */
+body {
+    background-color: #FFFDF7;
+    font-family: 'Poppins', sans-serif;
+    color: #374151;
+    font-size: 16px;      /* TAMBAH INI */
+    line-height: 1.8;     /* TAMBAH INI */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+
+body.page-show {
+    opacity: 1;
+}
+
+/* HEADER */
+
+.header {
+    background: linear-gradient(135deg, #FDE68A, #FBBF24);
+    padding: 18px 36px 30px;   /* DIPERKECIL */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+
+
+
+.header::after {
+    content: "";
+    position: absolute;
+    bottom: -18px;
+    left: 0;
+    width: 100%;
+    height: 36px;
+    background: #FFFDF7;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+}
+
+
+/* LOGO */
+.logo {
+    font-family: 'Baloo 2', cursive;
+    font-size: 70px;          /* DIBESARKAN */
+    font-weight: 700;
+    color: #92400E;
+    letter-spacing: 2px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.logo span {
+    font-size: 40px;
+}
+
+
+.logo::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 60%;
+    height: 6px;
+    background: #FB7185;
+    border-radius: 6px;
+}
+
+
+/* NAV */
+nav a {
+    color: #92400E;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 6px;
+}
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background: #FB7185;
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* CONTAINER */
+.container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* KATALOG */
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 26px;
+    margin-top: 30px;
+}
+
+.book-card {
+    background: white;
+    border-radius: 20px;
+    padding: 18px;
+    text-align: center;
+    box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+    border-top: 6px solid var(--pink);
+    transition: transform 0.3s ease;
+}
+.book-card:hover {
+    transform: translateY(-8px);
+}
+
+
+.book-card img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 14px;
+}
+
+.book-card h3 {
+    font-size: 18px;
+    color: #1F2937;
+}
+
+.book-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #4B5563;
+}
+
+/* TOMBOL */
+.book-card a {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 10px 22px;
+    background: #FB7185;
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.book-card a:hover {
+    background: #F43F5E;
+}
+
+/* FOOTER */
+footer {
+    background: #FFF7D6;
+    border-top: 1px solid #FDE68A;
+    text-align: center;
+    padding: 18px;
+    margin-top: 60px;
+    font-size: 14px;
+    color: #92400E;
+}
+
+/* OVERLAY TRANSISI HALAMAN */
+.page-overlay {
+    position: fixed;
+    inset: 0;
+    background: #FEF3C7; /* kuning pastel hangat */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(2px);
+    z-index: 9999;
+}
+
+.page-overlay.show {
+    opacity: 0.85;
+}
+
+/* =========================
+   HERO BERANDA
+   ========================= */
+
+.hero {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 30px;
+}
+
+.hero-text h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 46px;
+    color: #92400E;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #4B5563;
+    margin-bottom: 30px;
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 14px 32px;
+    background: #FB7185;
+    color: white;
+    border-radius: 40px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    box-shadow: 0 8px 20px rgba(251,113,133,0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hero-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(251,113,133,0.45);
+    background: #F43F5E;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 32px;
+
+    box-shadow:
+        0 0 20px rgba(0, 0, 0, 0.20),   /* SEMUA SISI */
+        0 0px 25px rgba(0, 0, 0, 0.20); /* BAWAH */
+}
+
+
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-image img {
+        margin: 0 auto;
+    }
+}
+/* ===== HERO TITLE WOW ===== */
+#hero-title {
+    position: relative;
+    animation: popIn 0.8s ease-out;
+}
+
+/* efek masuk */
+@keyframes popIn {
+    0% {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* efek glow */
+#hero-title.glow {
+    text-shadow:
+        0 0 6px #fde68a,
+        0 0 12px #fbbf24,
+        0 0 18px #f59e0b;
+}
+
+/* bounce tombol lebih lucu */
+.hero-btn {
+    animation: bounce 1.8s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+/* ===== TRANSISI TEKS BERANDA ===== */
+.hero-text h1,
+.hero-text p,
+.hero-btn {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: all 0.8s ease;
+}
+
+.hero-text.show h1 {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero-text.show p {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.2s;
+}
+
+.hero-text.show .hero-btn {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.4s;
+}
+
+/* =========================
+   TENTANG KAMI (ABOUT)
+   ========================= */
+
+.about {
+    text-align: center;
+}
+
+.about-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: 42px;
+    color: #92400E;
+    margin-bottom: 20px;
+}
+
+.about-intro {
+    max-width: 750px;
+    margin: 0 auto 50px;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #4B5563;
+}
+
+/* ===== CARD ===== */
+.about-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.about-card {
+    background: white;
+    padding: 28px 22px;
+    border-radius: 22px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 35px rgba(0,0,0,0.12);
+}
+
+.about-icon {
+    font-size: 42px;
+    margin-bottom: 16px;
+}
+
+.about-card h3 {
+    font-size: 20px;
+    color: #1F2937;
+    margin-bottom: 12px;
+}
+
+.about-card p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #4B5563;
+}
+
+/* ===== QUOTE ===== */
+.about-quote {
+    background: #FEF3C7;
+    padding: 28px;
+    border-radius: 20px;
+    font-size: 18px;
+    color: #92400E;
+    font-style: italic;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .about-title {
+        font-size: 34px;
+    }
+
+    .about-intro {
+        font-size: 16px;
+    }
+}
+/* =========================
+   HALAMAN EDUKASI
+   ========================= */
+
+.edukasi {
+    text-align: center;
+}
+
+.edukasi-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: 40px;
+    color: #92400E;
+    margin-bottom: 20px;
+}
+
+.edukasi-intro {
+    max-width: 750px;
+    margin: 0 auto 45px;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #4B5563;
+}
+
+/* ===== CARD EDUKASI ===== */
+.edukasi-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 28px;
+    margin-bottom: 45px;
+}
+
+.edukasi-card {
+    background: white;
+    padding: 26px 22px;
+    border-radius: 22px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.edukasi-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 35px rgba(0,0,0,0.12);
+}
+
+.edukasi-icon {
+    font-size: 42px;
+    margin-bottom: 14px;
+}
+
+.edukasi-card h3 {
+    font-size: 18px;
+    color: #1F2937;
+    margin-bottom: 10px;
+}
+
+.edukasi-card p {
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: #4B5563;
+}
+
+/* ===== HIGHLIGHT ===== */
+.edukasi-highlight {
+    background: #FEF3C7;
+    padding: 26px;
+    border-radius: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 17px;
+    color: #92400E;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .edukasi-title {
+        font-size: 32px;
+    }
+
+    .edukasi-intro {
+        font-size: 16px;
+    }
+}
+/* =========================
+   EDUKASI SUPER INTERAKTIF
+   ========================= */
+
+.edukasi {
+    text-align: center;
+}
+
+.edukasi-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: 42px;
+    color: #92400E;
+    margin-bottom: 16px;
+}
+
+.edukasi-intro {
+    max-width: 720px;
+    margin: 0 auto 50px;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #4B5563;
+}
+
+/* STEP */
+.edukasi-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 28px;
+    margin-bottom: 60px;
+}
+
+.step-card {
+    background: #FFF7D6;
+    padding: 30px;
+    border-radius: 24px;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.step-card span {
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    background: #FB7185;
+    color: white;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    line-height: 42px;
+    font-weight: bold;
+}
+
+/* MANFAAT */
+.sub-title {
+    font-size: 26px;
+    margin-bottom: 24px;
+    color: #92400E;
+}
+
+.edukasi-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 22px;
+    margin-bottom: 60px;
+}
+
+.edukasi-card {
+    background: white;
+    padding: 26px;
+    border-radius: 20px;
+    font-size: 18px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.edukasi-card:hover {
+    transform: translateY(-6px);
+}
+
+/* QUIZ */
+.quiz-box {
+    background: #FEF3C7;
+    padding: 30px;
+    border-radius: 26px;
+    max-width: 600px;
+    margin: 0 auto 50px;
+}
+
+.quiz-box button {
+    margin: 10px;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 20px;
+    background: #FB7185;
+    color: white;
+    cursor: pointer;
+}
+
+.quiz-box button:hover {
+    background: #F43F5E;
+}
+
+#quiz-result {
+    margin-top: 14px;
+    font-weight: 600;
+}
+
+/* TIPS */
+.edukasi-highlight {
+    background: #FFF7D6;
+    padding: 26px;
+    border-radius: 20px;
+    max-width: 780px;
+    margin: 0 auto;
+    font-size: 17px;
+    color: #92400E;
+}
+
+/* =========================
+   TRANSISI EDUKASI
+   ========================= */
+
+.fade-edukasi {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.fade-edukasi.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* QUIZ */
+/* =========================
+   QUIZ EDUKASI – MENARIK
+   ========================= */
+
+.quiz-box {
+    background: #FFF7D6;
+    padding: 34px;
+    border-radius: 30px;
+    max-width: 760px;
+    margin: 60px auto;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.quiz-title {
+    font-size: 28px;
+    color: #92400E;
+    margin-bottom: 24px;
+    font-family: 'Baloo 2', cursive;
+}
+
+/* Progress bar */
+.quiz-progress {
+    background: var(--mint);
+    height: 12px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+#progress-bar {
+    height: 100%;
+    width: 0%;
+    background: #FB7185;
+    transition: width 0.4s ease;
+}
+
+/* Soal */
+.quiz-question {
+    background: white;
+    padding: 24px;
+    border-radius: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+}
+
+.quiz-question p {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 14px;
+}
+
+/* Opsi */
+.quiz-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+}
+
+.quiz-options button {
+    flex: 1 1 200px;
+    padding: 14px 20px;
+    border-radius: 30px;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    background: #FB7185;
+    color: white;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.quiz-options button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 22px rgba(251,113,133,0.4);
+}
+
+.quiz-options button.benar {
+    background: #22C55E;
+}
+
+.quiz-options button.salah {
+    background: #EF4444;
+}
+
+/* Skor */
+.quiz-score {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #92400E;
+}
+/* =========================
+   HALAMAN KONTAK MENARIK
+   ========================= */
+
+.fade-kontak {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.9s ease;
+}
+
+.fade-kontak.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.kontak-wrapper {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+/* TEKS */
+.kontak-text h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 42px;
+    color: #92400E;
+    margin-bottom: 16px;
+}
+
+.kontak-text p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #4B5563;
+    margin-bottom: 20px;
+}
+
+.kontak-info p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.kontak-quote {
+    margin-top: 30px;
+    padding: 20px;
+    background: #FEF3C7;
+    border-radius: 20px;
+    font-style: italic;
+    color: #92400E;
+}
+
+/* FORM */
+.kontak-form {
+    background: white;
+    padding: 34px;
+    border-radius: 30px;
+    box-shadow: 0 18px 35px rgba(0,0,0,0.12);
+}
+
+.kontak-form h3 {
+    font-size: 26px;
+    margin-bottom: 20px;
+    color: #92400E;
+}
+
+.kontak-form input,
+.kontak-form textarea {
+    width: 100%;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+    border-radius: 16px;
+    border: 1.5px solid #FDE68A;
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.kontak-form textarea {
+    resize: none;
+    height: 120px;
+}
+
+.kontak-form input:focus,
+.kontak-form textarea:focus {
+    outline: none;
+    border-color: #FB7185;
+}
+
+.kontak-form button {
+    width: 100%;
+    padding: 14px;
+    background: #FB7185;
+    color: white;
+    border-radius: 30px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.kontak-form button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(251,113,133,0.45);
+    background: #F43F5E;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .kontak-wrapper {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .kontak-quote {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .header {
+        flex-direction: column;
+        gap: 14px;
+        padding: 16px 20px 24px;
+        text-align: center;
+    }
+
+    .logo {
+        font-size: 42px;   /* LOGO MENYESUAIKAN */
+    }
+
+    nav a {
+        font-size: 15px;
+        margin: 6px;
+        display: inline-block;
+    }
+}
+/* ===== ANIMASI BUKU TERBUKA ===== */
+.book-open {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    z-index: 99999;
+    pointer-events: none;
+}
+
+.book-open .page {
+    width: 50%;
+    height: 100%;
+    background: #FEF3C7;
+    animation-duration: 1.4s;
+    animation-fill-mode: forwards;
+}
+
+.book-open .left {
+    animation-name: openLeft;
+    transform-origin: left;
+}
+
+.book-open .right {
+    animation-name: openRight;
+    transform-origin: right;
+}
+
+@keyframes openLeft {
+    from { transform: scaleX(1); }
+    to   { transform: scaleX(0); }
+}
+
+@keyframes openRight {
+    from { transform: scaleX(1); }
+    to   { transform: scaleX(0); }
+}
+.music-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #FB7185;
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+    z-index: 9999;
+}
+.music-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #FB7185;
+    border: none;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 9999;
+}

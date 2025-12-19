@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edukasi - Buku Anak Ceria</title>
+    <link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <audio id="bg-music" loop>
+    <source src="audio/musik.mp3" type="audio/mpeg">
+</audio>
+<button id="music-toggle" class="music-btn">🔊</button>
+
+<div class="page-overlay"></div>
+<header class="header">
+    <div class="logo">LiteraKids 📚</div>
+    <nav>
+        <a href="index.html">Beranda</a>
+        <a href="tentang.html">Tentang</a>
+        <a href="katalog.html">Katalog</a>
+        <a href="edukasi.html">Edukasi</a>
+        <a href="kontak.html">Kontak</a>
+    </nav>
+</header>
+
+<section class="container edukasi fade-edukasi">
+
+    <h2 class="edukasi-title">Edukasi Anak 📚✨</h2>
+
+    <p class="edukasi-intro">
+        Membaca membantu anak belajar, berimajinasi,
+        dan memahami dunia dengan cara menyenangkan.
+    </p>
+
+    <!-- STEP -->
+    <div class="edukasi-steps">
+
+        <div class="step-card">
+            <span>1</span>
+            <h3>Kenalkan Buku</h3>
+            <p>Mulai dari buku bergambar agar anak tertarik.</p>
+        </div>
+
+        <div class="step-card">
+            <span>2</span>
+            <h3>Baca Bersama</h3>
+            <p>Membaca bersama membuat anak merasa aman.</p>
+        </div>
+
+        <div class="step-card">
+            <span>3</span>
+            <h3>Ajak Bertanya</h3>
+            <p>Tanyakan isi cerita agar anak berpikir.</p>
+        </div>
+
+    </div>
+
+    <!-- QUIZ -->
+  <div class="quiz-box">
+
+    <h3 class="quiz-title">🧩 Kuis Seru Literasi</h3>
+
+    <div class="quiz-progress">
+        <div id="progress-bar"></div>
+    </div>
+
+    <div class="quiz-question">
+        <p>1️⃣ Apa manfaat membaca?</p>
+        <div class="quiz-options">
+            <button onclick="jawab(this, true)">📚 Menambah pengetahuan</button>
+            <button onclick="jawab(this, false)">😴 Membuat malas</button>
+        </div>
+    </div>
+
+    <div class="quiz-question">
+        <p>2️⃣ Kapan waktu terbaik membaca?</p>
+        <div class="quiz-options">
+            <button onclick="jawab(this, true)">🌙 Sebelum tidur</button>
+            <button onclick="jawab(this, false)">📱 Mandi</button>
+        </div>
+    </div>
+
+    <div class="quiz-question">
+        <p>3️⃣ Membaca dapat melatih?</p>
+        <div class="quiz-options">
+            <button onclick="jawab(this, false)">❌ Kemalasan</button>
+            <button onclick="jawab(this, true)">🧠 Daya ingat</button>
+        </div>
+    </div>
+
+    <div class="quiz-score">
+        ⭐ Skor: <span id="score">0</span> / 3
+    </div>
+
+</div>
+
+    <div class="edukasi-highlight">
+        🌟 <strong>Tips:</strong>
+        Jangan memarahi anak jika salah menjawab,
+        karena belajar adalah proses.
+    </div>
+
+</section>
+
+
+
+<footer>
+    <p>© 2025 Buku Anak Ceria</p>
+</footer>
+<script src="js/script.js"></script>
+</body>
+</html>

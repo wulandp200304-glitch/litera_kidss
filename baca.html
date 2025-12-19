@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Baca Buku</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+    margin: 0;
+    background: linear-gradient(135deg, #1f2937, #111827);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        .book {
+    background: white;
+    padding: 14px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+        img {
+            max-width: 90vw;
+            max-height: 80vh;
+        }
+
+        .controls {
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 8px 16px;
+            margin: 0 8px;
+            cursor: pointer;
+            border: none;
+            border-radius: 6px;
+            background: #219ebc;
+            color: white;
+            font-size: 14px;
+        }
+
+        button:disabled {
+            background: #aaa;
+            cursor: not-allowed;
+        }
+
+      .back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #ff6f61;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    animation: pulse 2.5s infinite;
+    transition: all 0.3s ease;
+}
+
+/* animasi halus berdenyut */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    }
+}
+
+/* animasi saat disentuh */
+.back-btn:hover {
+    background: #e63946;
+    transform: translateX(-6px) scale(1.08);
+    animation: none; /* berhenti denyut saat hover */
+}
+
+    </style>
+</head>
+<body>
+    <audio id="bg-music" loop>
+    <source src="audio/musik.mp3" type="audio/mpeg">
+</audio>
+<button id="music-toggle" class="music-btn">🔊</button>
+
+<div class="page-overlay"></div>
+   <a href="katalog.html" class="back-btn">
+    ← Kembali ke Katalog
+</a>
+
+<div class="book">
+    <img id="page" alt="Halaman Buku"
+         onerror="this.alt='Gambar tidak ditemukan'">
+    <div class="controls">
+        <button onclick="prev()" id="prevBtn">⬅ Sebelumnya</button>
+        <button onclick="next()" id="nextBtn">Berikutnya ➡</button>
+    </div>
+</div>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const namaBuku = params.get("buku") || "rumah-wortel";
+    const totalHalaman = parseInt(params.get("total")) || 22;
+
+    let halaman = 1;
+
+    function update() {
+        const img = document.getElementById("page");
+        img.src = `buku/${namaBuku}/page${halaman}.jpg`;
+
+        document.getElementById("prevBtn").disabled = halaman === 1;
+        document.getElementById("nextBtn").disabled = halaman === totalHalaman;
+    }
+
+    function next() {
+        if (halaman < totalHalaman) {
+            halaman++;
+            update();
+        }
+    }
+
+    function prev() {
+        if (halaman > 1) {
+            halaman--;
+            update();
+        }
+    }
+
+    update();
+</script>
+<script src="js/script.js"></script>
+
+
+</body>
+</html>

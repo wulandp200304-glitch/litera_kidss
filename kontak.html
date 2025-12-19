@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kontak - Buku Anak Ceria</title>
+    <link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <audio id="bg-music" loop>
+    <source src="audio/musik.mp3" type="audio/mpeg">
+</audio>
+<button id="music-toggle" class="music-btn">🔊</button>
+
+<div class="page-overlay"></div>
+
+<header class="header">
+    <div class="logo">LiteraKids 📚</div>
+    <nav>
+        <a href="index.html">Beranda</a>
+        <a href="tentang.html">Tentang</a>
+        <a href="katalog.html">Katalog</a>
+        <a href="edukasi.html">Edukasi</a>
+        <a href="kontak.html">Kontak</a>
+    </nav>
+</header>
+
+<section class="container kontak fade-kontak">
+
+    <div class="kontak-wrapper">
+
+        <!-- TEKS -->
+        <div class="kontak-text">
+            <h2>Hubungi Kami 💌</h2>
+            <p>
+                Punya pertanyaan, saran, atau ingin bekerja sama
+                dengan <strong>LiteraKids</strong>?  
+                Kami senang mendengar dari kamu!
+            </p>
+
+            <div class="kontak-info">
+                <p>📍 Padang, Indonesia</p>
+                <p>📧 literakids@email.com</p>
+                <p>📞 0812-3456-7890</p>
+            </div>
+
+            <div class="kontak-quote">
+                “Setiap pesan dari kamu adalah
+                langkah kecil untuk masa depan anak yang lebih cerah 🌟”
+            </div>
+        </div>
+
+        <!-- FORM -->
+        <div class="kontak-form">
+            <h3>Kirim Pesan ✨</h3>
+
+            <form onsubmit="return validasiForm()">
+                <input type="text" placeholder="Nama Lengkap" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <textarea placeholder="Tulis pesanmu di sini..." required></textarea>
+
+                <button type="submit">Kirim Pesan 💖</button>
+            </form>
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+    <p>© 2025 Buku Anak Ceria</p>
+</footer>
+<script src="js/script.js"></script>
+</body>
+</html>
